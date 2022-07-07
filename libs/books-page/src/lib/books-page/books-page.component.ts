@@ -16,36 +16,31 @@ import { BooksService } from '@book-co/shared-services';
   styleUrls: ['./books-page.component.scss'],
 })
 export class BooksPageComponent implements OnInit {
-  books$: Observable<BookModel[]>
-  currentBook$: Observable<BookModel | null>;
-  total$: Observable<number>;
+  // books$: Observable<BookModel[]>
+  // currentBook$: Observable<BookModel>;
+  // total$: Observable<number>;
 
+  books$ = this.store.select(selectAllBooks);
+  currentBook$ = this.store.select(selectActiveBook);
+  total$ = this.store.select(selectBooksEarningsTotals);
 
   constructor(
-    private booksService: BooksService,
     private store: Store
     ) {
-    this.books$ = store.select(selectAllBooks);
-    this.currentBook$ = store.select(selectActiveBook);
-    this.total$ = store.select(selectBooksEarningsTotals);
+    // this.books$ = store.select(selectAllBooks);
+    // this.currentBook$ = store.select(selectActiveBook);
+    // this.total$ = store.select(selectBooksEarningsTotals);
 
 
   }
 
   ngOnInit() {
-    this.getBooks();
+
     this.removeSelectedBook();
 
     this.store.dispatch(BooksPageActions.enter());
   }
 
-  getBooks() {
-
-    this.booksService.all().subscribe((books) => {
-
-      this.store.dispatch(BooksApiActions.booksLoaded({books}))
-    });
-  }
 
 
 
@@ -58,10 +53,10 @@ export class BooksPageComponent implements OnInit {
   onCancel() {
     this.removeSelectedBook();
   }
-
   removeSelectedBook() {
     this.store.dispatch(BooksPageActions.clearSelectedBook());
   }
+
 
   onSave(book: BookRequiredProps | BookModel) {
     if ('id' in book) {
@@ -79,12 +74,7 @@ export class BooksPageComponent implements OnInit {
     }))
 
 
-    this.booksService.create(bookProps).subscribe((book) => {
-      this.getBooks();
-      this.removeSelectedBook();
 
-      this.store.dispatch(BooksApiActions.bookCreated({book}))
-    });
   }
 
   updateBook(book: BookModel) {
@@ -96,12 +86,7 @@ export class BooksPageComponent implements OnInit {
     )
 
 
-    this.booksService.update(book.id, book).subscribe((book) => {
-      this.getBooks();
-      this.removeSelectedBook();
 
-      this.store.dispatch(BooksApiActions.bookUpdated({book}))
-    });
   }
 
   onDelete(book: BookModel) {
@@ -112,11 +97,6 @@ export class BooksPageComponent implements OnInit {
       })
     )
 
-    this.booksService.delete(book.id).subscribe(() => {
-      this.getBooks();
-      this.removeSelectedBook();
 
-      this.store.dispatch(BooksApiActions.bookDeleted({bookId:book.id}))
-    });
   }
 }
