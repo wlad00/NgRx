@@ -1,10 +1,15 @@
 <mat-toolbar color="primary">
-  <button (click)="sidenav.toggle()" mat-mini-fab>
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>
-    {{ title }}
-  </span>
+
+  <a
+    mat-stroked-button
+    routerLinkActive="active"
+    routerLink="users"
+    class="nav-link"
+  >Users</a
+  >
+  <a mat-stroked-button routerLinkActive="active" routerLink="photos"
+  >Photos</a
+  >
 </mat-toolbar>
 
 <mat-sidenav-container>

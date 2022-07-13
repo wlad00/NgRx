@@ -22,15 +22,25 @@ import { AppComponent } from './app.component';
     MatSidenavModule,
     MatIconModule,
     RouterModule.forRoot([
+
+      {
+        path: 'home',
+        redirectTo: '/home'
+      },
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
       {
         path: 'books',
         loadChildren: () =>
           import('@book-co/books-page').then((m) => m.BooksPageModule),
       },
+
       {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'books',
+        path: '**',
+        redirectTo: 'home'
       },
     ]),
     StoreModule.forRoot({}),

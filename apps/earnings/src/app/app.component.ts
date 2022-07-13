@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'NgRx Workshop';
-  links = [{ path: '/books', icon: 'book', label: 'Books' }];
+  links = [
+    { path: '/home', icon: 'home', label: 'Home' },
+    { path: '/books', icon: 'book', label: 'Books' }
+
+  ];
 }
