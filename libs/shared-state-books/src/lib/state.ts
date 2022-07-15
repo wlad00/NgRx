@@ -1,14 +1,8 @@
-import { NgModule } from '@angular/core';
-import {
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer,
-  StoreModule,
-} from '@ngrx/store';
+import {NgModule} from '@angular/core';
+import {ActionReducerMap, createFeatureSelector, createSelector, MetaReducer, StoreModule,} from '@ngrx/store';
 import * as fromBooks from './books.reducer';
 
-export const FEATURE_KEY = 'shared-books';
+export const PAGE_BOOKS_KEY = 'shared-books';
 
 /**
  * State Shape
@@ -27,14 +21,15 @@ export const metaReducers: MetaReducer<State>[] = [];
  * Module
  **/
 @NgModule({
-  imports: [StoreModule.forFeature(FEATURE_KEY, reducers, { metaReducers })],
+  imports: [StoreModule.forFeature(PAGE_BOOKS_KEY, reducers, {metaReducers})],
 })
-export class SharedStateBooksModule {}
+export class SharedStateBooksModule {
+}
 
 /**
- * Feature Selector
+ * Page Selector
  **/
-export const selectSharedBooksState = createFeatureSelector<State>(FEATURE_KEY);
+const selectSharedBooksState = createFeatureSelector<State>(PAGE_BOOKS_KEY);
 
 /**
  * Books Selectors
@@ -43,6 +38,7 @@ export const selectBooksState = createSelector(
   selectSharedBooksState,
   (state: State) => state.books
 );
+
 export const selectAllBooks = createSelector(
   selectBooksState,
   fromBooks.selectAll

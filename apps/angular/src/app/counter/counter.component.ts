@@ -1,15 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {Store} from "@ngrx/store";
+import {CounterActions} from "@angular/state";
+
+// import {clear, decrease, increase} from "../state/count/count.actions";
+
 
 @Component({
   selector: 'book-co-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss']
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent {
+  counter = 0;
+  updatedAt?: number;
 
-  constructor() { }
+  constructor(private store: Store) {
 
-  ngOnInit(): void {
+
+  }
+
+
+  get cannotDecrease(): boolean {
+
+    return this.counter <= 0;
+  }
+
+  increase(): void {
+    this.updatedAt = Date.now();
+    this.counter++;
+    this.store.dispatch(CounterActions.increase());
+  }
+
+  decrease(): void {
+    this.updatedAt = Date.now();
+    this.counter--;
+    this.store.dispatch(CounterActions.decrease());
+  }
+
+  clear(): void {
+    this.updatedAt = Date.now();
+    this.counter = 0;
+    this.store.dispatch(CounterActions.clear());
   }
 
 }
