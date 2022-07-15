@@ -4,6 +4,7 @@ import { BookModel, calculateBooksGrossEarnings } from '@book-co/shared-models';
 import { BooksPageActions, BooksApiActions } from '@book-co/books-page/actions';
 
 const createBook = (books: BookModel[], book: BookModel) => [...books, book];
+
 const updateBook = (books: BookModel[], changes: BookModel) =>
   books.map((book) => {
     return book.id === changes.id ? Object.assign({}, book, changes) : book;
@@ -36,6 +37,11 @@ export const reducer = createReducer(
       activeBookId: action.bookId,
     };
   }),
+
+
+
+
+
   on(BooksApiActions.booksLoaded, (state, action) => {
     return {
       ...state,
@@ -65,13 +71,16 @@ export const reducer = createReducer(
 
 
 export const selectAll = (state: State) => state.collection;
+
 export const selectActiveBookId = (state: State) => state.activeBookId;
+
 export const selectActiveBook = createSelector(
   selectAll,
   selectActiveBookId,
   (books, activeBookId) =>
     books.find((book) => book.id === activeBookId) || null
 );
+
 export const selectEarningsTotals = createSelector(
   selectAll,
   calculateBooksGrossEarnings

@@ -16,20 +16,20 @@ import { BooksService } from '@book-co/shared-services';
   styleUrls: ['./books-page.component.scss'],
 })
 export class BooksPageComponent implements OnInit {
-  // books$: Observable<BookModel[]>
-  // currentBook$: Observable<BookModel>;
-  // total$: Observable<number>;
+  books$: Observable<BookModel[]>
+  currentBook$: Observable<BookModel | null>;
+  total$: Observable<number>;
 
-  books$ = this.store.select(selectAllBooks);
+  /*books$ = this.store.select(selectAllBooks);
   currentBook$ = this.store.select(selectActiveBook);
-  total$ = this.store.select(selectBooksEarningsTotals);
+  total$ = this.store.select(selectBooksEarningsTotals);*/
 
   constructor(
     private store: Store
     ) {
-    // this.books$ = store.select(selectAllBooks);
-    // this.currentBook$ = store.select(selectActiveBook);
-    // this.total$ = store.select(selectBooksEarningsTotals);
+    this.books$ = store.select(selectAllBooks);
+    this.currentBook$ = store.select(selectActiveBook);
+    this.total$ = store.select(selectBooksEarningsTotals);
 
 
   }

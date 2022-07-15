@@ -14,9 +14,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EditorComponent } from './editor/editor.component';
 import { CounterComponent } from './counter/counter.component';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, PageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -44,6 +45,10 @@ import { CounterComponent } from './counter/counter.component';
         path: 'books',
         loadChildren: () =>
           import('@book-co/books-page').then((m) => m.BooksPageModule),
+      },
+      {
+        path: 'page',
+        component: PageComponent
       },
 
       { path: 'editor/:id',

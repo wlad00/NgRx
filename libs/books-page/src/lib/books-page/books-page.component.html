@@ -1,20 +1,37 @@
 <div class="container">
-  <div class="col-50">
-    <bco-books-total [total]="total$ | async"> </bco-books-total>
 
-    <bco-books-list
-      [books]="books$ | async"
-      (select)="onSelect($event)"
-      (delete)="onDelete($event)"
-    >
-    </bco-books-list>
-  </div>
+ <div>
 
-  <bco-book-detail
-    class="col-50"
-    [book]="currentBook$ | async"
-    (save)="onSave($event)"
-    (cancel)="onCancel()"
-  >
-  </bco-book-detail>
+   <div >
+
+     <h2>This is Tolas</h2>
+
+
+     <bco-books-total [total]="total$ | async"> </bco-books-total>
+
+     <h2>This is List</h2>
+
+     <bco-books-list
+       [books]="books$ | async"
+       (select)="onSelect($event)"
+       (delete)="onDelete($event)"
+     >
+     </bco-books-list>
+
+   </div>
+
+   <div></div>
+
+   <h2>This is details</h2>
+
+   <bco-book-detail
+     class="details-class"
+     [book]="currentBook$ | async"
+     (save)="onSave($event)"
+     (cancel)="onCancel()"
+   >
+   </bco-book-detail>
+ </div>
+
+
 </div>
