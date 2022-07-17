@@ -11,8 +11,8 @@ import {RouterModule} from '@angular/router';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreModule} from '@ngrx/store';
 import {AppComponent} from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {HeaderComponent} from './header/header.component';
 
 // import {PageLibraryModule} from "../../../page-library/page-library.module";
 
@@ -54,10 +54,6 @@ import { HeaderComponent } from './header/header.component';
         loadChildren: () => import('./page-editor/editor.module').then(
           m => m.EditorModule)
       },
-      {
-        path: 'library',
-        loadChildren: () => import('@page-library').then(m => m.PageLibraryModule)
-      },
       /* {
          path: 'library',
          loadChildren: () => import('@page-library/modal').then(m => m.PageLibraryModule)
@@ -72,7 +68,7 @@ import { HeaderComponent } from './header/header.component';
       maxAge: 15,
     }),
     EffectsModule.forRoot([]),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
