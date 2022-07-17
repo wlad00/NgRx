@@ -1,15 +1,28 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'book-co-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-root',
+  template: `
+    <app-header></app-header>
+
+    <router-outlet></router-outlet>
+
+    <app-footer></app-footer>
+
+
+    <style>
+      :host {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 100%;
+        /*height: 50%;*/
+        /*background: darkgrey;*/
+      }
+
+    </style>
+
+  `
 })
 export class AppComponent {
-  title = 'NgRx Workshop';
-  links = [
-    { path: '/home', icon: 'home', label: 'Home' },
-    { path: '/books', icon: 'book', label: 'Books' }
-
-  ];
 }

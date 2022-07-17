@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {ActionReducerMap, createFeatureSelector, createSelector, MetaReducer, StoreModule,} from '@ngrx/store';
 import * as fromBooks from './books.reducer';
 
-export const PAGE_BOOKS_KEY = 'shared-books';
+export const PAGE_BOOKS_KEY = 'PAGE-BOOKS';
 
 /**
  * State Shape

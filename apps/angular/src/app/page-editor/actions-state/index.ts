@@ -7,7 +7,7 @@ import {NgModule} from "@angular/core";
 export {CounterActions};
 
 
-export const PAGE_COUNTER_KEY = 'page_counter';
+export const PAGE_EDITOR_KEY = 'PAGE-EDITOR';
 
 
 export interface State {
@@ -30,7 +30,7 @@ export const metaReducers: MetaReducer<State>[] = [];
  **/
 @NgModule({
   imports: [
-    StoreModule.forFeature(PAGE_COUNTER_KEY, reducers, {metaReducers})],
+    StoreModule.forFeature(PAGE_EDITOR_KEY, reducers, {metaReducers})],
 
 })
 export class CounterModule {

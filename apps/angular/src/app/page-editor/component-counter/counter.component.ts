@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {CounterActions} from "@angular/state";
+import {CounterActions} from "@page-editor/actions-state";
 
 // import {clear, decrease, increase} from "../state/count/count.actions";
 
 
 @Component({
-  selector: 'book-co-counter',
+  selector: 'editor-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss']
 })

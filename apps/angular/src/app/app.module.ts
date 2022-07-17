@@ -11,12 +11,13 @@ import {RouterModule} from '@angular/router';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreModule} from '@ngrx/store';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {PageComponent} from './page/page.component';
-import {CounterModule} from "@angular/state";
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+
+// import {PageLibraryModule} from "../../../page-library/page-library.module";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, PageComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -28,18 +29,15 @@ import {CounterModule} from "@angular/state";
 
       {
         path: 'home',
-        component: HomeComponent
+        loadChildren: () => import('./page-editor/editor.module').then(
+          m => m.EditorModule)
       },
       {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full',
+
       },
-      /*{
-        path: 'editor/:id',
-        loadChildren: () =>
-          import('./editor/editor.component').then((m) => m)
-      },*/
       {
         path: 'books',
         loadChildren: () =>
@@ -47,21 +45,23 @@ import {CounterModule} from "@angular/state";
       },
       {
         path: 'page',
-        component: PageComponent
+        loadChildren: () => import('./page-books/books.module').then(
+          m => m.BooksModule)
       },
 
       {
         path: 'editor/:id',
-        loadChildren: () => import('./editor/editor.module').then(
+        loadChildren: () => import('./page-editor/editor.module').then(
           m => m.EditorModule)
       },
-
       {
-        path: 'counter',
-        loadChildren: () => import('./counter/counter.module').then(
-          m => m.EditorModule)
+        path: 'library',
+        loadChildren: () => import('@page-library').then(m => m.PageLibraryModule)
       },
-
+      /* {
+         path: 'library',
+         loadChildren: () => import('@page-library/modal').then(m => m.PageLibraryModule)
+       },*/
       {
         path: '**',
         redirectTo: 'home'
@@ -72,8 +72,7 @@ import {CounterModule} from "@angular/state";
       maxAge: 15,
     }),
     EffectsModule.forRoot([]),
-    HttpClientModule,
-    CounterModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
