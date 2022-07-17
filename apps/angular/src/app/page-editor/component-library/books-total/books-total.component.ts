@@ -1,10 +1,9 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'bco-books-total',
-  templateUrl: './books-total.component.html',
-  styleUrls: ['./books-total.component.scss'],
+  selector: 'bco-book-total',
+  templateUrl: './books-total.component.html'
 })
-export class BooksTotalComponent {
+export class BookTotalComponent {
   @Input() total: number | null = 0;
 }
