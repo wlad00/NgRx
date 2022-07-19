@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {CounterActions} from "@page-editor/actions-state";
+import {countSelector} from "../actions-state/counter/counter.selectors";
+import {map} from "rxjs/operators";
 
 // import {clear, decrease, increase} from "../state/count/count.actions";
 
@@ -11,8 +13,11 @@ import {CounterActions} from "@page-editor/actions-state";
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent {
-  counter = 0;
+
   updatedAt?: number;
+
+  count$ = this.store.select(countSelector);
+  cannotDecrease$ = this.count$.pipe(map(count => count <= 0));
 
   constructor(private store: Store) {
 
@@ -20,26 +25,27 @@ export class CounterComponent {
   }
 
 
-  get cannotDecrease(): boolean {
+  /*get cannotDecrease(): boolean {
 
-    return this.counter <= 0;
-  }
+
+    return false;
+  }*/
 
   increase(): void {
     this.updatedAt = Date.now();
-    this.counter++;
+
     this.store.dispatch(CounterActions.increase());
   }
 
   decrease(): void {
     this.updatedAt = Date.now();
-    this.counter--;
+
     this.store.dispatch(CounterActions.decrease());
   }
 
   clear(): void {
     this.updatedAt = Date.now();
-    this.counter = 0;
+
     this.store.dispatch(CounterActions.clear());
   }
 

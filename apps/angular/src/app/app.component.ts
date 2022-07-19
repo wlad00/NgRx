@@ -5,10 +5,11 @@ import {Component} from '@angular/core';
   template: `
     <app-header></app-header>
 
-    <router-outlet></router-outlet>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
 
     <app-footer></app-footer>
-
 
     <style>
       :host {
@@ -18,6 +19,11 @@ import {Component} from '@angular/core';
         min-height: 100%;
         /*height: 50%;*/
         /*background: darkgrey;*/
+      }
+
+      .container {
+        padding: 30px;
+        flex: 1;
       }
 
     </style>

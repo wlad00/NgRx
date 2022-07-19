@@ -1,16 +1,14 @@
-<p>library works!</p>
+<p>component-library</p>
 
 
-<h2>This is Totals</h2>
+<div class="total-container">
 
-<div class="container">
-  <div class="col-50">
-    <bc-book-total [total]="total"></bc-book-total>
-  </div>
+  <bc-book-total [total]="total"></bc-book-total>
+
 </div>
 
 
-<div class="container">
+<div class="list-container">
 
   <bc-book-list
     (delete)="onDelete($event)"
@@ -22,12 +20,14 @@
 </div>
 
 
-<h2>This is details</h2>
+<div class="details-container">
+  <bc-book-detail
+    (cancel)="onCancel()"
+    (save)="onSave($event)"
+    [book]="currentBook"
+    class="details-class"
+  >
+  </bc-book-detail>
+</div>
 
-<bc-book-detail
-  (cancel)="onCancel()"
-  (save)="onSave($event)"
-  [book]="currentBook"
-  class="details-class"
->
-</bc-book-detail>
+

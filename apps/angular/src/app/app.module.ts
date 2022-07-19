@@ -13,11 +13,12 @@ import {StoreModule} from '@ngrx/store';
 import {AppComponent} from './app.component';
 import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
+import {HomeComponent} from "./page-home/home.component";
 
 // import {PageLibraryModule} from "../../../page-library/page-library.module";
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -29,8 +30,12 @@ import {HeaderComponent} from './header/header.component';
 
       {
         path: 'home',
-        loadChildren: () => import('./page-editor/editor.module').then(
-          m => m.EditorModule)
+        component: HomeComponent
+      },
+      {
+        path: 'page-counter',
+        loadChildren: () => import('./page-calculator/page-calculator.module').then(
+          m => m.PageCalculatorModule)
       },
       {
         path: '',
