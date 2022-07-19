@@ -15,6 +15,8 @@ import {BookListComponent} from "./component-library/books-list/books-list.compo
 import {BooksDetailComponent} from "./component-library/book-detail/books-detail.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatTabsModule} from "@angular/material/tabs";
+import {EffectsModule} from "@ngrx/effects";
+import {LibraryEffects} from "./actions-state/librarary/library.effects";
 
 
 const routes: Routes = [
@@ -35,7 +37,8 @@ const routes: Routes = [
     MatIconModule,
     MatListModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    EffectsModule.forFeature([LibraryEffects])
   ]
 })
 export class EditorModule {

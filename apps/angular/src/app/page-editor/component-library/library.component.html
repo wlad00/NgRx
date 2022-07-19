@@ -3,7 +3,7 @@
 
 <div class="total-container">
 
-  <bc-book-total [total]="total"></bc-book-total>
+  <bc-book-total [total]="total$ | async"></bc-book-total>
 
 </div>
 
@@ -13,7 +13,7 @@
   <bc-book-list
     (delete)="onDelete($event)"
     (select)="onSelect($event)"
-    [books]="books"
+    [books]="books$ | async"
   >
   </bc-book-list>
 
@@ -24,7 +24,7 @@
   <bc-book-detail
     (cancel)="onCancel()"
     (save)="onSave($event)"
-    [book]="currentBook"
+    [book]="currentBook$ | async"
     class="details-class"
   >
   </bc-book-detail>

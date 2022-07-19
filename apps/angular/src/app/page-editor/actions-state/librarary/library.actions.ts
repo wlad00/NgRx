@@ -1,5 +1,6 @@
 import {createAction, props} from '@ngrx/store';
 import {BookRequiredProps} from '@book-co/shared-models';
+import {BookModel} from "../../models/book.model";
 
 export const enter = createAction('[LIBRARY] Enter');
 
@@ -24,5 +25,26 @@ export const updateBook = createAction(
 
 export const deleteBook = createAction(
   '[LIBRARY] Delete Book',
+  props<{ bookId: string }>()
+);
+/*---------------------------------------*/
+
+export const booksLoaded = createAction(
+  '[LIBRARY API] Books Loaded Success',
+  props<{ books: BookModel[] }>()
+);
+
+export const bookCreated = createAction(
+  '[LIBRARY API] Book Created',
+  props<{ book: BookModel }>()
+);
+
+export const bookUpdated = createAction(
+  '[LIBRARY API] Book Updated',
+  props<{ book: BookModel }>()
+);
+
+export const bookDeleted = createAction(
+  '[LIBRARY API] Book Deleted',
   props<{ bookId: string }>()
 );
