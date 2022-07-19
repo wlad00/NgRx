@@ -23,19 +23,19 @@ export const countSelector = createSelector(
   counterStateSelector,
   state => state.count
 );
-/*
+
+
 export const updatedAtSelector = createSelector(
-  featureSelector,
+  counterStateSelector,
   state => state.updatedAt
 );
 
 export const getAllDataSelector = createSelector(
-  featureSelector,
+  counterStateSelector,
   state => state.data
 );
 
 export const dataLoading = createSelector(
-  featureSelector,
+  counterStateSelector,
   state => state.dataLoading
 );
-*/

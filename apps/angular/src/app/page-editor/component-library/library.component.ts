@@ -32,10 +32,9 @@ export class LibraryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(LibraryActions.enter());
+    // this.store.dispatch(LibraryActions.enter());
 
-    // this.getBooks();
-    this.removeSelectedBook();
+    // this.removeSelectedBook();
   }
 
   /*-----------------------------------------------------*/

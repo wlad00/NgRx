@@ -1,8 +1,14 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {CounterActions} from "@page-editor/actions-state";
-import {countSelector} from "../actions-state/counter/counter.selectors";
+import {
+  countSelector,
+  dataLoading,
+  getAllDataSelector,
+  updatedAtSelector
+} from "../actions-state/counter/counter.selectors";
 import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
 
 // import {clear, decrease, increase} from "../state/count/count.actions";
 
@@ -12,15 +18,19 @@ import {map} from "rxjs/operators";
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss']
 })
-export class CounterComponent {
+export class CounterComponent implements OnInit {
 
-  updatedAt?: number;
+  // updatedAt?: number;
 
   count$ = this.store.select(countSelector);
   cannotDecrease$ = this.count$.pipe(map(count => count <= 0));
+  updatedAt$ = this.store.select(updatedAtSelector);
+
+  dataLoading$: Observable<boolean>;
 
   constructor(private store: Store) {
 
+    this.dataLoading$ = this.store.select(dataLoading);
 
   }
 
@@ -32,21 +42,32 @@ export class CounterComponent {
   }*/
 
   increase(): void {
-    this.updatedAt = Date.now();
+    // this.updatedAt = Date.now();
 
     this.store.dispatch(CounterActions.increase());
   }
 
   decrease(): void {
-    this.updatedAt = Date.now();
+    // this.updatedAt = Date.now();
 
     this.store.dispatch(CounterActions.decrease());
   }
 
   clear(): void {
-    this.updatedAt = Date.now();
+    // this.updatedAt = Date.now();
 
     this.store.dispatch(CounterActions.clear());
+  }
+
+  getMovies(): void {
+    this.store.dispatch(CounterActions.getData());
+  }
+
+
+  ngOnInit(): void {
+    this.store
+      .select(getAllDataSelector)
+      .subscribe((data) => console.log(data));
   }
 
 }

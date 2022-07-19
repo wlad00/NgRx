@@ -1,4 +1,10 @@
 <p>component-counter</p>
+<button (click)="getMovies()">GetData()</button>
+
+<h1 *ngIf="dataLoading$ | async"> IS LOADING...</h1>
+
+<h1> dataLoading = {{dataLoading$ | async}}</h1>
+
 
 <button (click)="increase()"
         class="fz-60 p-50 m-20">+1
@@ -14,6 +20,6 @@
 
 <p class="fz-60">Schetchik = {{count$ | async}}</p>
 
-<p *ngIf="updatedAt">
-  Обновлялось {{updatedAt| date:"HH:mm:ss dd/MM/yyyy"}}
+<p *ngIf="updatedAt$ | async">
+  Обновлялось {{updatedAt$ | async | date:"HH:mm:ss dd/MM/yyyy"}}
 </p>

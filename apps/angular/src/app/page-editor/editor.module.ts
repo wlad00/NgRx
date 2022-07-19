@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatTabsModule} from "@angular/material/tabs";
 import {EffectsModule} from "@ngrx/effects";
 import {LibraryEffects} from "./actions-state/librarary/library.effects";
+import {CounterEffects} from "./actions-state/counter/counter.effects";
 
 
 const routes: Routes = [
@@ -38,7 +39,7 @@ const routes: Routes = [
     MatListModule,
     ReactiveFormsModule,
     MatTabsModule,
-    EffectsModule.forFeature([LibraryEffects])
+    EffectsModule.forFeature([LibraryEffects, CounterEffects])
   ]
 })
 export class EditorModule {
