@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {concatMap, exhaustMap, map, mergeMap} from 'rxjs/operators';
 
-// import {BooksApiActions, BooksPageActions} from '@book-co/books-page/actions';
-import {BookService} from "../../services/book.service";
-import {LibraryActions} from "@page-editor/actions-state";
+import {LibraryActions} from "@page-editor";
+
+import {LibraryService} from "./Workers/LibraryService";
 
 @Injectable()
 export class LibraryEffects {
@@ -12,11 +12,15 @@ export class LibraryEffects {
 
   loadBooks$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(LibraryActions.enter),
+      ofType(
+        LibraryActions.enter),
+
       exhaustMap(() =>
         this.booksService
           .all()
-          .pipe(map((books) => LibraryActions.booksLoaded({books})))
+          .pipe(map((books) =>
+
+            LibraryActions.booksLoaded({books})))
       )
     )
   );
@@ -25,7 +29,8 @@ export class LibraryEffects {
 
   createBook$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(LibraryActions.createBook),
+      ofType(
+        LibraryActions.createBook),
       concatMap((action) =>
         this.booksService
           .create(action.book)
@@ -35,7 +40,8 @@ export class LibraryEffects {
   );
   updateBook$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(LibraryActions.updateBook),
+      ofType(
+        LibraryActions.updateBook),
       concatMap((action) =>
         this.booksService
           .update(action.bookId, action.changes)
@@ -45,7 +51,8 @@ export class LibraryEffects {
   );
   deleteBook$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(LibraryActions.deleteBook),
+      ofType(
+        LibraryActions.deleteBook),
       mergeMap((action) =>
         this.booksService
           .delete(action.bookId)
@@ -56,6 +63,8 @@ export class LibraryEffects {
     )
   );
 
-  constructor(private booksService: BookService, private actions$: Actions) {
+  constructor(
+    private booksService: LibraryService,
+    private actions$: Actions) {
   }
 }

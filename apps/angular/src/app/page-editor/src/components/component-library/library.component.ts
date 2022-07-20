@@ -1,15 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-// import {BooksService} from "@book-co/shared-services";
-// import {BookModel, calculateBooksGrossEarnings} from "@book-co/shared-models";
-import {BookModel, BookRequiredProps, calculateBooksGrossEarnings} from "../models/book.model";
 import {Store} from "@ngrx/store";
-import {LibraryActions} from "@page-editor/actions-state";
 import {Observable} from "rxjs";
+
+import {LibraryActions} from "@page-editor";
+import {BookModel, BookRequiredProps} from "@models-editor";
+
+
 import {
-  selectActiveBook,
   selectAllBooks,
+  selectActiveBook,
   selectBooksEarningsTotals
-} from "../actions-state/librarary/library.selectors";
+} from "../../actions-state/librarary/library.selectors";
 
 @Component({
   selector: 'editor-library',
@@ -17,9 +18,7 @@ import {
   styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent implements OnInit {
-  books: BookModel[] = [];
-  currentBook: BookModel | null = null;
-  total: number = 0;
+
   books$: Observable<BookModel[]>;
   currentBook$: Observable<BookModel | null>;
   total$: Observable<number>;
@@ -32,9 +31,9 @@ export class LibraryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.store.dispatch(LibraryActions.enter());
+    this.store.dispatch(LibraryActions.enter());
 
-    // this.removeSelectedBook();
+    this.removeSelectedBook();
   }
 
   /*-----------------------------------------------------*/
@@ -42,7 +41,6 @@ export class LibraryComponent implements OnInit {
   onSelect(book: BookModel) {
     this.store.dispatch(LibraryActions.selectBook({bookId: book.id}));
 
-    this.currentBook = book;
   }
 
   onCancel() {
@@ -52,25 +50,6 @@ export class LibraryComponent implements OnInit {
   removeSelectedBook() {
     this.store.dispatch(LibraryActions.clearSelectedBook());
 
-    this.currentBook = null;
-  }
-
-
-  /*-----------------------------------------------------*/
-
-
-  /* getBooks() {
-     this.booksService.all().subscribe((books) => {
-
-       this.store.dispatch(LibraryActions.booksLoaded({books}));
-
-       this.books = books;
-       this.updateTotals(books);
-     });
-   }*/
-
-  updateTotals(books: BookModel[]) {
-    this.total = calculateBooksGrossEarnings(books);
   }
 
 
@@ -85,10 +64,6 @@ export class LibraryComponent implements OnInit {
   saveBook(bookProps: BookRequiredProps) {
     this.store.dispatch(LibraryActions.createBook({book: bookProps}));
 
-    /*this.booksService.create(bookProps).subscribe(() => {
-      // this.getBooks();
-      this.removeSelectedBook();
-    });*/
   }
 
   updateBook(book: BookModel) {
@@ -96,19 +71,11 @@ export class LibraryComponent implements OnInit {
       LibraryActions.updateBook({bookId: book.id, changes: book})
     );
 
-    /* this.booksService.update(book.id, book).subscribe(() => {
-       // this.getBooks();
-       this.removeSelectedBook();
-     });*/
   }
 
   onDelete(book: BookModel) {
     this.store.dispatch(LibraryActions.deleteBook({bookId: book.id}));
 
-    /*this.booksService.delete(book.id).subscribe(() => {
-      // this.getBooks();
-      this.removeSelectedBook();
-    });*/
   }
 
 }

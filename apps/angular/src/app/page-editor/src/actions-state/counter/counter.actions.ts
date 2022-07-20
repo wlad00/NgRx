@@ -7,14 +7,19 @@ export const decrease = createAction('[COUNTER] decrease');
 export const clear = createAction('[COUNTER] clear');
 
 
+export const getData = createAction('[COUNTER] getData');
+
+
+/*  secondary actions */
+/* поэтому пропсы приходят */
+
+
 export const changeUpdatedAt = createAction(
-  '[COUNTER] changeUpdatedAt',
+  '[COUNTER SECOND] changeUpdatedAt',
   props<{ updatedAt: number }>()
 );
 
-export const getData = createAction('[COUNTER] getData');
-
 export const getDateSuccess = createAction(
-  '[COUNTER] getDataSuccess',
+  '[COUNTER SECOND] getDataSuccess',
   props<{ data: any }>()
 );

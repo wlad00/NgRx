@@ -1,5 +1,5 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {PAGE_EDITOR_KEY, StatePageEditor} from "@page-editor/actions-state";
+import {PAGE_EDITOR_KEY, StatePageEditor} from "@page-editor";
 // import {State} from "@book-co/shared-state-books";
 
 /**

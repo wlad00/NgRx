@@ -1,6 +1,8 @@
 import {createReducer, on} from "@ngrx/store";
-import {BookModel} from "@book-co/shared-models";
-import {LibraryActions} from "@page-editor/actions-state";
+
+import {LibraryActions} from "@page-editor";
+import {BookModel} from "@models-editor";
+
 import * as Workers from './library.workers';
 
 
@@ -17,6 +19,7 @@ export const initialState: BookState = {
 export const bookReducer = createReducer(
   initialState,
 
+  /*----------------------------------------------------*/
 
   on(LibraryActions.clearSelectedBook,
     LibraryActions.enter,
@@ -35,6 +38,10 @@ export const bookReducer = createReducer(
       activeBookId: action.bookId,
     };
   }),
+
+
+  /*--- after effect ----------*/
+
 
   on(LibraryActions.booksLoaded, (state, action) => {
 
@@ -66,6 +73,6 @@ export const bookReducer = createReducer(
       ...state,
       collection: Workers.deleteBook(state.collection, action.bookId),
     };
-  })
+  }),
 );
 

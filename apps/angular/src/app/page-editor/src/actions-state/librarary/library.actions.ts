@@ -1,6 +1,6 @@
 import {createAction, props} from '@ngrx/store';
-import {BookRequiredProps} from '@book-co/shared-models';
-import {BookModel} from "../../models/book.model";
+
+import {BookModel, BookRequiredProps} from "@models-editor";
 
 export const enter = createAction('[LIBRARY] Enter');
 

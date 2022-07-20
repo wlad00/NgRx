@@ -1,8 +1,8 @@
 import {BookState} from "./library.reducers";
 import {createSelector} from "@ngrx/store";
-import {calculateBooksGrossEarnings} from "../../models/book.model";
+
 import {BookModel} from "@book-co/shared-models";
-import * as LibraryService from './Workers/LibraryService';
+import * as LibraryWorker from './Workers/LibraryWorker';
 
 /* Selectors */
 
@@ -13,11 +13,11 @@ export const selectAll = (state: BookState) => state.collection;
 export const selectActiveBook = createSelector(
   selectAll,
   selectActiveBookId,
-  LibraryService.getActiveBook
+  LibraryWorker.getActiveBook
 );
 export const selectEarningsTotals = createSelector(
   selectAll,
-  calculateBooksGrossEarnings
+  LibraryWorker.calculateBooksGrossEarnings
 );
 
 /*  Reducers */

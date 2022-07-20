@@ -19,23 +19,19 @@
     "baseUrl": ".",
     "strict": true,
     "paths": {
-      "@page-library": [
-        "apps/angular/src/app/page-library/page-library.module.ts"
-      ],
-      "@page-library/modal": [
-        "apps/angular/index.ts"
-      ],
-      "@angular/state": [
-        "apps/angular/src/app/state/index.ts"
-      ],
-      "@page-editor/actions-state": [
-        "apps/angular/src/app/page-editor/actions-state/index.ts"
-      ],
-      "@angular/page-editor": [
+
+      "@page-editor": [
         "apps/angular/src/app/page-editor/index.ts"
       ],
-      "@book-co/books-page": [
+      "@models-editor": [
+        "apps/angular/src/app/models/models-editor.ts"
+      ],
+
+      /*"@book-co/books-page": [
         "libs/books-page/src/index.ts"
+      ],*/
+      "@book-co/books-page": [
+        "libs/books-page/src/lib/books-page.module.ts"
       ],
       "@book-co/books-page/actions": [
         "libs/books-page/actions/src/index.ts"

@@ -1,14 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {CounterActions} from "@page-editor/actions-state";
+import {CounterActions} from "@page-editor";
 import {
   countSelector,
   dataLoading,
   getAllDataSelector,
   updatedAtSelector
-} from "../actions-state/counter/counter.selectors";
+} from "../../actions-state/counter/counter.selectors";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
+// import {countSelector} from "../../actions-state/counter/counter.selectors";
 
 // import {clear, decrease, increase} from "../state/count/count.actions";
 
