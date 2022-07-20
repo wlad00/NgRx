@@ -20,7 +20,7 @@ export class CounterEffects {
     ));
 
 
-  loadData$ = createEffect(() =>
+  /*loadData$ = createEffect(() =>
     this.actions$.pipe(
       ofType(
         CounterActions.getData),
@@ -32,7 +32,7 @@ export class CounterEffects {
 
             CounterActions.getDateSuccess({data})
           )))
-    ));
+    ));*/
 
 
   constructor(

@@ -1,14 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {CounterActions} from "@page-editor";
+import {CounterActions, LoadingActions} from "@page-editor";
 import {
   countSelector,
-  dataLoading,
-  getAllDataSelector,
   updatedAtSelector
 } from "../../actions-state/counter/counter.selectors";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
+import {dataLoading, getAllDataSelector} from "../../actions-api/loading/loading.selectors";
 // import {countSelector} from "../../actions-state/counter/counter.selectors";
 
 // import {clear, decrease, increase} from "../state/count/count.actions";
@@ -61,7 +60,7 @@ export class CounterComponent implements OnInit {
   }
 
   getMovies(): void {
-    this.store.dispatch(CounterActions.getData());
+    this.store.dispatch(LoadingActions.getData());
   }
 
 

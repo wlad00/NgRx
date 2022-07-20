@@ -33,11 +33,11 @@ export const counterReducer = createReducer(
   })),
 
 
-  on(CounterActions.getData, (state) => ({
+ /* on(CounterActions.getData, (state) => ({
     ...state,
 
     dataLoading: true
-  })),
+  })),*/
 
   /* --------- from effect -----------*/
 
@@ -46,10 +46,10 @@ export const counterReducer = createReducer(
     updatedAt: action.updatedAt
   })),
 
-  on(CounterActions.getDateSuccess, (state, {data}) => ({
+  /*on(CounterActions.getDateSuccess, (state, {data}) => ({
     ...state,
     dataLoading: false,
     data: data
-  })),
+  })),*/
 );
 

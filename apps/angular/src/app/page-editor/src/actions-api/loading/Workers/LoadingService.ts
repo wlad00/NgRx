@@ -8,7 +8,7 @@ const BASE_URL = 'http://localhost:3000/books';
 @Injectable({
   providedIn: 'any'
 })
-export class CounterService {
+export class LoadingService {
 
   constructor(private http: HttpClient) {
   }

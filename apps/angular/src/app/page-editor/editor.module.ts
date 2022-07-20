@@ -23,6 +23,7 @@ import {BookListComponent} from "./src/components/component-library/books-list/b
 import {BooksDetailComponent} from "./src/components/component-library/book-detail/books-detail.component";
 import {LibraryEffects} from "./src/actions-state/librarary/library.effects";
 import {CounterEffects} from "./src/actions-state/counter/counter.effects";
+import {LoadingEffects} from "./src/actions-api/loading/loading.effects";
 // import {LibraryEffects} from "./actions-state/librarary/library.effects";
 // import {CounterEffects} from "./actions-state/counter/counter.effects";
 
@@ -45,7 +46,7 @@ const routes: Routes = [
     MatListModule,
     ReactiveFormsModule,
     MatTabsModule,
-    EffectsModule.forFeature([LibraryEffects, CounterEffects]),
+    EffectsModule.forFeature([LibraryEffects, CounterEffects,LoadingEffects]),
     ActionsEditorModule
   ]
 })
