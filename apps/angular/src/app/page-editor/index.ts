@@ -2,6 +2,10 @@ import * as CounterActions from './src/actions-state/counter/counter.actions';
 import * as LibraryActions from './src/actions-state/librarary/library.actions';
 import * as LoadingActions from './src/actions-api/loading/loading.actions';
 
+import * as CounterSelectors from './src/actions-state/counter/counter.selectors';
+import * as LibrarySelectors from './src/actions-state/librarary/library.selectors';
+import * as LoadingSelectors from './src/actions-api/loading/loading.selectors';
+
 import {BookModel, BookRequiredProps} from '@book-co/shared-models';
 
 
@@ -16,6 +20,7 @@ import {loadingReducer, LoadingState} from "./src/actions-api/loading/loading.re
 
 
 export {CounterActions, LibraryActions, LoadingActions};
+export {CounterSelectors, LibrarySelectors, LoadingSelectors};
 
 
 

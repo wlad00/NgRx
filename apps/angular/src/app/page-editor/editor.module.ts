@@ -46,7 +46,11 @@ const routes: Routes = [
     MatListModule,
     ReactiveFormsModule,
     MatTabsModule,
-    EffectsModule.forFeature([LibraryEffects, CounterEffects,LoadingEffects]),
+    EffectsModule.forFeature([
+      LibraryEffects,
+      CounterEffects,
+      LoadingEffects
+    ]),
     ActionsEditorModule
   ]
 })
