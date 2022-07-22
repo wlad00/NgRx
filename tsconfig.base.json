@@ -20,15 +20,13 @@
     "strict": true,
     "paths": {
 
-      "@page-editor": [
-        "apps/angular/src/app/page-editor/index.ts"
+      "@editor-models": [
+        "apps/angular/src/app/models/editor.models.ts"
       ],
-      "@models-editor": [
-        "apps/angular/src/app/models/models-editor.ts"
+      "@editor-actions": [
+        "apps/angular/src/app/page-editor/src/actions/index.ts"
       ],
-      "@actions-editor": [
-        "apps/angular/src/app/page-editor/src/actions-state/index.ts"
-      ],
+
 
       /*"@book-co/books-page": [
         "libs/books-page/src/index.ts"

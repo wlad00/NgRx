@@ -1,16 +1,19 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {map, mergeMap} from 'rxjs/operators';
-// import {LoadingActions} from "@page-editor";
 import {LoadingService} from "./Workers/LoadingService";
-import {LoadingActions} from "@actions-editor";
+import {LoadingActions} from "@editor-actions";
 
-// import {EMPTY} from 'rxjs';
+
+
 
 @Injectable()
 export class LoadingEffects {
 
-  loadData$ = createEffect(() =>
+
+  /* getData  */
+
+  getDateSuccess = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LoadingActions.getData),

@@ -1,15 +1,15 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import { StatePageEditor} from "@page-editor";
+import {StatePageEditor} from "@editor-actions";
 
 
-const EditorPageSelector
+const PageSelector
   = createFeatureSelector<StatePageEditor>('PAGE-EDITOR');
 /**
  * 1.  State Selector
  **/
 
-export const counterStateSelector = createSelector(
-  EditorPageSelector,
+const LoadingSelector = createSelector(
+  PageSelector,
   (state: StatePageEditor) => state.loadingState
 );
 
@@ -20,16 +20,16 @@ export const counterStateSelector = createSelector(
  **/
 
 
-/* getAllDataSelector */
+/* getAllDataSelector  */
 
 export const getAllDataSelector = createSelector(
-  counterStateSelector,
+  LoadingSelector,
   state => state.data
 );
 
 /* dataLoading */
 
 export const dataLoading = createSelector(
-  counterStateSelector,
+  LoadingSelector,
   state => state.dataLoading
 );

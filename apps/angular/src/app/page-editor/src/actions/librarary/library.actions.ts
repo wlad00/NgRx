@@ -1,58 +1,64 @@
 import {createAction, props} from '@ngrx/store';
 
-import {BookModel, BookRequiredProps} from "@models-editor";
-
-export const enter = createAction('[LIBRARY] Enter');
+import {BookModel, BookRequiredProps} from "@editor-models";
 
 
 
-/*----------------------------------*/
+/* --------------- TO REDUCERS --------------------*/
 
 export const selectBook = createAction(
-  '[LIBRARY] Select Book',
+  '[LIBRARY] selectBook *',
   props<{ bookId: string }>()
 );
 
 export const clearSelectedBook = createAction(
-  '[LIBRARY] Clear Selected Book'
+  '[LIBRARY] clearSelectedBook *'
 );
 
-/*-------------------------*/
+/* ---------- TO REDUCERS + TO EFFECTS ------------*/
+
+
+/* ---------------- TO EFFECTS --------------------*/
+
+export const enter = createAction('[LIBRARY] enter ->');
 
 export const createBook = createAction(
-  '[LIBRARY] Create Book',
+  '[LIBRARY] createBook -> ',
   props<{ book: BookRequiredProps }>()
 );
 
 export const updateBook = createAction(
-  '[LIBRARY] Update Book',
+  '[LIBRARY] updateBook -> ',
   props<{ bookId: string; changes: BookRequiredProps }>()
 );
 
 export const deleteBook = createAction(
-  '[LIBRARY] Delete Book',
+  '[LIBRARY] deleteBook -> ',
   props<{ bookId: string }>()
 );
-/*---------------------------------------*/
 
+/*-------------------------------------------------*/
+/*---------------- FROM EFFECTS  ------------------*/
+/*-------------------------------------------------*/
 
 
 export const booksLoaded = createAction(
-  '[LIBRARY API] Books Loaded Success',
+  '[LIBRARY] -> booksLoaded',
   props<{ books: BookModel[] }>()
 );
 
+
 export const bookCreated = createAction(
-  '[LIBRARY API] Book Created',
+  '[LIBRARY] -> bookCreated',
   props<{ book: BookModel }>()
 );
 
 export const bookUpdated = createAction(
-  '[LIBRARY API] Book Updated',
+  '[LIBRARY] -> bookUpdated',
   props<{ book: BookModel }>()
 );
 
 export const bookDeleted = createAction(
-  '[LIBRARY API] Book Deleted',
+  '[LIBRARY] -> bookDeleted',
   props<{ bookId: string }>()
 );

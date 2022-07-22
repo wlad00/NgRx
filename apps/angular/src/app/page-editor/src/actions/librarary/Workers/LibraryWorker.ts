@@ -1,4 +1,4 @@
-import {BookModel} from "@models-editor";
+import {BookModel} from "@editor-models";
 
 
 export function getActiveBook(

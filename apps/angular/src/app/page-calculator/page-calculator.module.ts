@@ -9,7 +9,7 @@ import {MatListModule} from "@angular/material/list";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatTabsModule} from "@angular/material/tabs";
 import {PageCalculatorComponent} from "./page-calculator.component";
-import {CalculatorModule} from "./actions-state";
+import {CalculatorModule} from "./actions";
 
 
 const routes: Routes = [

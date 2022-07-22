@@ -1,21 +1,17 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import { StatePageEditor} from "@page-editor";
+// import { StatePageEditor} from "@page-editor";
 import * as Workers from './library.workers';
+import {StatePageEditor} from "@editor-actions";
 
 
 
-
-const EditorPageSelector
+const PageSelector
   = createFeatureSelector<StatePageEditor>('PAGE-EDITOR');
-/**
- * 1.  State Selector
- **/
 
-export const libraryStateSelector = createSelector(
-  EditorPageSelector,
+const LibrarySelector = createSelector(
+  PageSelector,
   (state: StatePageEditor) => state.libraryState
 );
-
 
 
 /**
@@ -26,21 +22,21 @@ export const libraryStateSelector = createSelector(
 /* selectAllBooks */
 
 export const selectAllBooks = createSelector(
-  libraryStateSelector,
+  LibrarySelector,
   Workers.selectAll
 );
 
 /* selectActiveBook */
 
 export const selectActiveBook = createSelector(
-  libraryStateSelector,
+  LibrarySelector,
   Workers.selectActiveBook
 );
 
 /* selectBooksEarningsTotals */
 
 export const selectBooksEarningsTotals = createSelector(
-  libraryStateSelector,
+  LibrarySelector,
   Workers.selectEarningsTotals
 );
 

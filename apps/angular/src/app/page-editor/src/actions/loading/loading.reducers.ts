@@ -1,5 +1,5 @@
 import {createReducer, on} from "@ngrx/store";
-import {LoadingActions} from "@actions-editor";
+import {LoadingActions} from "@editor-actions";
 
 export interface LoadingState {
 
@@ -12,9 +12,12 @@ export const initialState: LoadingState = {
   dataLoading: false
 };
 
+/*---------------- REDUCERS ------------------------*/
 
 export const loadingReducer = createReducer(
   initialState,
+
+  /* getData */
 
   on(LoadingActions.getData, (state) => ({
 
@@ -22,8 +25,12 @@ export const loadingReducer = createReducer(
     dataLoading: true
   })),
 
-  /* --------- from effect -----------*/
 
+  /*-------------------------------------------------*/
+  /*---------------- FROM EFFECTS  ------------------*/
+  /*-------------------------------------------------*/
+
+  /* getDateSuccess */
 
   on(LoadingActions.getDateSuccess, (state, {data}) => ({
 

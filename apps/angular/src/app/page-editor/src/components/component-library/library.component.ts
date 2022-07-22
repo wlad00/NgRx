@@ -3,15 +3,15 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 
 // import {LibraryActions} from "@page-editor";
-import {BookModel, BookRequiredProps} from "@models-editor";
+import {BookModel, BookRequiredProps} from "@editor-models";
 
 
 import {
   selectAllBooks,
   selectActiveBook,
   selectBooksEarningsTotals
-} from "../../actions-state/librarary/library.selectors";
-import {LibraryActions} from "@actions-editor";
+} from "../../actions/librarary/library.selectors";
+import {LibraryActions} from "@editor-actions";
 
 // import { LibraryActions } from '@editor-actions';
 

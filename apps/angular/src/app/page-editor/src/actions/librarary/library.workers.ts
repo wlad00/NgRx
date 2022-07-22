@@ -1,8 +1,9 @@
 import {BookState} from "./library.reducers";
 import {createSelector} from "@ngrx/store";
 
-import {BookModel} from "@book-co/shared-models";
+// import {BookModel} from "@book-co/shared-models";
 import * as LibraryWorker from './Workers/LibraryWorker';
+import {BookModel} from "@editor-models";
 
 /* Selectors */
 

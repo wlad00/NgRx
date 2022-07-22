@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {CalculatorActions} from "./actions-state";
-import {calculatorSelector} from "./actions-state/calculator/calculator.selectors";
+import {CalculatorActions} from "./actions";
+import {calculatorSelector} from "./actions/calculator/calculator.selectors";
 import {map} from "rxjs/operators";
 
 @Component({

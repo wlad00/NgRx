@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { LibraryActions } from '@actions-editor';
+import { LibraryActions } from '@editor-actions';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {concatMap, exhaustMap, map, mergeMap} from 'rxjs/operators';
 
@@ -10,8 +10,9 @@ import {LibraryService} from "./Workers/LibraryService";
 @Injectable()
 export class LibraryEffects {
 
+  /* enter */
 
-  loadBooks$ = createEffect(() =>
+  booksLoaded = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LibraryActions.enter),
@@ -26,9 +27,9 @@ export class LibraryEffects {
     )
   );
 
-  /*------------------------------------------------------*/
+  /* createBook */
 
-  createBook$ = createEffect(() =>
+  bookCreated = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LibraryActions.createBook),
@@ -39,7 +40,10 @@ export class LibraryEffects {
       )
     )
   );
-  updateBook$ = createEffect(() =>
+
+  /* updateBook */
+
+  bookUpdated = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LibraryActions.updateBook),
@@ -50,7 +54,10 @@ export class LibraryEffects {
       )
     )
   );
-  deleteBook$ = createEffect(() =>
+
+  /* deleteBook */
+
+  bookDeleted = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LibraryActions.deleteBook),

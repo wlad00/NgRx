@@ -1,55 +1,52 @@
 import {createReducer, on} from "@ngrx/store";
-import {CounterActions} from "@actions-editor";
+import {CounterActions} from "@editor-actions";
 
 export interface CounterState {
   count: number;
   updatedAt?: number;
-  /*data?: any;
-  dataLoading: boolean;*/
 }
 
 export const initialState: CounterState = {
   count: 0,
-  // dataLoading: false
 };
 
+/*-------------- REDUCERS --------------------------*/
 
 export const counterReducer = createReducer(
   initialState,
 
-  /*--------------  3-й Этап ------------------------------*/
+  /* increase */
 
   on(CounterActions.increase, state => ({
     ...state,
     count: state.count + 1
   })),
+
+  /* decrease */
+
   on(CounterActions.decrease, state => ({
     ...state,
     count: state.count - 1
   })),
+
+  /* clear */
+
   on(CounterActions.clear, state => ({
     ...state,
     count: 0
   })),
 
 
- /* on(CounterActions.getData, (state) => ({
-    ...state,
+  /*-------------------------------------------------*/
+  /*---------------- FROM EFFECTS  ------------------*/
+  /*-------------------------------------------------*/
 
-    dataLoading: true
-  })),*/
-
-  /* --------- from effect -----------*/
+  /* changeUpdatedAt */
 
   on(CounterActions.changeUpdatedAt, (state, action) => ({
     ...state,
     updatedAt: action.updatedAt
   })),
 
-  /*on(CounterActions.getDateSuccess, (state, {data}) => ({
-    ...state,
-    dataLoading: false,
-    data: data
-  })),*/
 );
 

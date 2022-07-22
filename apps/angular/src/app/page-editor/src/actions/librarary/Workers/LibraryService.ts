@@ -2,11 +2,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import * as uuid from 'uuid';
 
-import {BookModel, BookRequiredProps} from "@models-editor";
-
-// import {BookModel, BookRequiredProps} from '@book-co/shared-models';
-
-
+import {BookModel, BookRequiredProps} from "@editor-models";
 
 
 const BASE_URL = 'http://localhost:3000/books';
