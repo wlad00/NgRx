@@ -26,6 +26,9 @@
       "@models-editor": [
         "apps/angular/src/app/models/models-editor.ts"
       ],
+      "@actions-editor": [
+        "apps/angular/src/app/page-editor/src/actions-state/index.ts"
+      ],
 
       /*"@book-co/books-page": [
         "libs/books-page/src/index.ts"

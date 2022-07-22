@@ -1,38 +1,33 @@
-import {createSelector} from "@ngrx/store";
-import {editorPageSelector, StatePageEditor} from "@page-editor";
-// import {State} from "@book-co/shared-state-books";
+import {createFeatureSelector, createSelector} from "@ngrx/store";
+import { StatePageEditor} from "@page-editor";
+
+
+const EditorPageSelector
+  = createFeatureSelector<StatePageEditor>('PAGE-EDITOR');
 
 /**
- * 2. Counter State Selector
+ * 1. Counter State Selector
  **/
 export const counterStateSelector = createSelector(
-  editorPageSelector,
+  EditorPageSelector,
   (state: StatePageEditor) => state.counterState
 );
 
 
-
-
 /**
- * 3. Counter All Selectors
+ * 2. Counter All Selectors
  **/
+
+/* countSelector */
+
 export const countSelector = createSelector(
   counterStateSelector,
   state => state.count
 );
 
+/* updatedAtSelector*/
 
 export const updatedAtSelector = createSelector(
   counterStateSelector,
   state => state.updatedAt
 );
-
-/*export const getAllDataSelector = createSelector(
-  counterStateSelector,
-  state => state.data
-);
-
-export const dataLoading = createSelector(
-  counterStateSelector,
-  state => state.dataLoading
-);*/

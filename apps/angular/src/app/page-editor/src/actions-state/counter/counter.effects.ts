@@ -1,23 +1,26 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {map, mergeMap} from 'rxjs/operators';
-import {CounterActions} from "@page-editor";
+// import {CounterActions} from "@page-editor";
 import {CounterService} from "./Workers/ConterService";
+import {CounterActions} from "@actions-editor";
 
-// import {EMPTY} from 'rxjs';
+//   import {EMPTY} from 'rxjs';
 
 @Injectable()
 export class CounterEffects {
 
-  updatedAt$ = createEffect(() =>
-    this.actions$.pipe(
+  updatedAt$ = createEffect(() => {
+    return this.actions$.pipe(
       ofType(
         CounterActions.increase,
         CounterActions.decrease,
         CounterActions.clear),
+
       map(() =>
         CounterActions.changeUpdatedAt({updatedAt: Date.now()}))
-    ));
+    );
+  });
 
 
   /*loadData$ = createEffect(() =>

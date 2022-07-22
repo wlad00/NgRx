@@ -1,29 +1,13 @@
-import * as CounterActions from './src/actions-state/counter/counter.actions';
-import * as LibraryActions from './src/actions-state/librarary/library.actions';
-import * as LoadingActions from './src/actions-api/loading/loading.actions';
-
-import {BookModel, BookRequiredProps} from '@book-co/shared-models';
 
 
-import {ActionReducerMap, createFeatureSelector, MetaReducer, StoreModule} from "@ngrx/store";
-// import {counterReducer, CounterState} from "./actions-state/counter/counter.reducers";
-// import {bookReducer, BookState} from "./actions-state/librarary/library.reducers";
+import {ActionReducerMap, createFeatureSelector, createSelector, MetaReducer, StoreModule} from "@ngrx/store";
 import {NgModule} from "@angular/core";
 import {counterReducer, CounterState} from "./src/actions-state/counter/counter.reducers";
 import {bookReducer, BookState} from "./src/actions-state/librarary/library.reducers";
-import {loadingReducer, LoadingState} from "./src/actions-api/loading/loading.reducers";
+import {loadingReducer, LoadingState} from "./src/actions-state/loading/loading.reducers";
 
 
-
-export {CounterActions, LibraryActions, LoadingActions};
-
-
-
-export const PAGE_EDITOR_KEY = 'PAGE-EDITOR';
-
-
-export const editorPageSelector
-  = createFeatureSelector<StatePageEditor>(PAGE_EDITOR_KEY);
+// export const PAGE_EDITOR_KEY = 'PAGE-EDITOR';
 
 
 export interface StatePageEditor {
@@ -42,16 +26,22 @@ export const reducers: ActionReducerMap<StatePageEditor> = {
 };
 
 
+// export const EditorPageSelector
+//   = createFeatureSelector<StatePageEditor>('PAGE-EDITOR');
+
+
 export const metaReducers: MetaReducer<StatePageEditor>[] = [];
 
 
 /**
  * Module
  **/
+/*
 @NgModule({
   imports: [
-    StoreModule.forFeature(PAGE_EDITOR_KEY, reducers, {metaReducers})],
+    StoreModule.forFeature('PAGE-EDITOR', reducers, {metaReducers})],
 
 })
 export class ActionsEditorModule {
 }
+*/

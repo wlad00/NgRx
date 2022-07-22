@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {EditorComponent} from './editor.component';
 // import {CounterComponent} from "./component-counter/counter.component";
 // import {LibraryComponent} from './component-library/library.component';
-import {ActionsEditorModule} from "@page-editor";
+import { reducers} from "@page-editor";
 // import {BookTotalComponent} from "./component-library/books-total/book-total.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
@@ -23,7 +23,8 @@ import {BookListComponent} from "./src/components/component-library/books-list/b
 import {BooksDetailComponent} from "./src/components/component-library/book-detail/books-detail.component";
 import {LibraryEffects} from "./src/actions-state/librarary/library.effects";
 import {CounterEffects} from "./src/actions-state/counter/counter.effects";
-import {LoadingEffects} from "./src/actions-api/loading/loading.effects";
+import {LoadingEffects} from "./src/actions-state/loading/loading.effects";
+import {StoreModule} from "@ngrx/store";
 // import {LibraryEffects} from "./actions-state/librarary/library.effects";
 // import {CounterEffects} from "./actions-state/counter/counter.effects";
 
@@ -46,8 +47,9 @@ const routes: Routes = [
     MatListModule,
     ReactiveFormsModule,
     MatTabsModule,
+    StoreModule.forFeature('PAGE-EDITOR', reducers),
     EffectsModule.forFeature([LibraryEffects, CounterEffects,LoadingEffects]),
-    ActionsEditorModule
+
   ]
 })
 export class EditorModule {

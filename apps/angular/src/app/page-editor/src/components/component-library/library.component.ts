@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 
-import {LibraryActions} from "@page-editor";
+// import {LibraryActions} from "@page-editor";
 import {BookModel, BookRequiredProps} from "@models-editor";
 
 
@@ -11,6 +11,9 @@ import {
   selectActiveBook,
   selectBooksEarningsTotals
 } from "../../actions-state/librarary/library.selectors";
+import {LibraryActions} from "@actions-editor";
+
+// import { LibraryActions } from '@editor-actions';
 
 @Component({
   selector: 'editor-library',

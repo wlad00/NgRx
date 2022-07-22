@@ -4,6 +4,10 @@ import {BookModel, BookRequiredProps} from "@models-editor";
 
 export const enter = createAction('[LIBRARY] Enter');
 
+
+
+/*----------------------------------*/
+
 export const selectBook = createAction(
   '[LIBRARY] Select Book',
   props<{ bookId: string }>()
@@ -12,6 +16,8 @@ export const selectBook = createAction(
 export const clearSelectedBook = createAction(
   '[LIBRARY] Clear Selected Book'
 );
+
+/*-------------------------*/
 
 export const createBook = createAction(
   '[LIBRARY] Create Book',
@@ -28,6 +34,8 @@ export const deleteBook = createAction(
   props<{ bookId: string }>()
 );
 /*---------------------------------------*/
+
+
 
 export const booksLoaded = createAction(
   '[LIBRARY API] Books Loaded Success',
