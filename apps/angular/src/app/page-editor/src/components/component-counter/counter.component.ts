@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
+import {CounterActions, CounterSelectors, LoadingActions, LoadingSelectors} from "@page-editor";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
-
-import {CounterActions, CounterSelectors, LoadingActions, LoadingSelectors} from "@actions-editor";
 
 @Component({
   selector: 'editor-counter',
@@ -26,6 +25,7 @@ export class CounterComponent implements OnInit {
   }
 
 
+  /* CounterActions */
 
   increase(): void {
 
@@ -42,8 +42,7 @@ export class CounterComponent implements OnInit {
     this.store.dispatch(CounterActions.clear());
   }
 
-
-  /*----------------------------------------------*/
+  /* LoadingActions */
 
   getMovies(): void {
 

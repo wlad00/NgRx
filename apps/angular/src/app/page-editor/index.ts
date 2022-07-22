@@ -7,6 +7,8 @@ import {bookReducer, BookState} from "./src/actions-state/librarary/library.redu
 import {loadingReducer, LoadingState} from "./src/actions-state/loading/loading.reducers";
 
 
+
+
 // export const PAGE_EDITOR_KEY = 'PAGE-EDITOR';
 
 
@@ -24,10 +26,6 @@ export const reducers: ActionReducerMap<StatePageEditor> = {
   libraryState: bookReducer,
   loadingState: loadingReducer
 };
-
-
-// export const EditorPageSelector
-//   = createFeatureSelector<StatePageEditor>('PAGE-EDITOR');
 
 
 export const metaReducers: MetaReducer<StatePageEditor>[] = [];
