@@ -1,5 +1,6 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {StatePageEditor} from "@editor-actions";
+import {editPageSelector} from "@editor-page";
 
 
 const PageSelector
@@ -9,7 +10,7 @@ const PageSelector
  **/
 
 const LoadingSelector = createSelector(
-  PageSelector,
+  editPageSelector,
   (state: StatePageEditor) => state.loadingState
 );
 

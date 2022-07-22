@@ -18,7 +18,8 @@ import {BooksDetailComponent} from "./src/components/component-library/book-deta
 import {LibraryEffects} from "./src/actions/librarary/library.effects";
 import {CounterEffects} from "./src/actions/counter/counter.effects";
 import {LoadingEffects} from "./src/actions/loading/loading.effects";
-import {ActionsEditorModule, EffectsEditorModule, reducers} from "@editor-actions";
+import { reducers} from "@editor-actions";
+import {StoreModule} from "@ngrx/store";
 
 
 const routes: Routes = [
@@ -39,9 +40,13 @@ const routes: Routes = [
     MatListModule,
     ReactiveFormsModule,
     MatTabsModule,
-
-    ActionsEditorModule,
-    EffectsEditorModule
+    StoreModule.forFeature('PAGE_EDITOR', reducers),
+    // EffectsEditorModule,
+    EffectsModule.forFeature([
+      LibraryEffects,
+      CounterEffects,
+      LoadingEffects
+    ])
 
   ]
 })

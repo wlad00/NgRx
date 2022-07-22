@@ -2,11 +2,6 @@ import * as CounterActions from './counter/counter.actions';
 import * as LibraryActions from './librarary/library.actions';
 import * as LoadingActions from './loading/loading.actions';
 
-import * as CounterSelectors from './counter/counter.selectors';
-import * as LibrarySelectors from './librarary/library.selectors';
-import * as LoadingSelectors from './loading/loading.selectors';
-
-/*------------------------------------*/
 
 import {ActionReducerMap, StoreModule} from "@ngrx/store";
 
@@ -25,7 +20,7 @@ import {LoadingEffects} from "./loading/loading.effects";
 /*---------------------------*/
 
 export {CounterActions, LibraryActions, LoadingActions};
-export {CounterSelectors,LibrarySelectors,LoadingSelectors};
+
 
 /*----------------------------*/
 
@@ -45,16 +40,17 @@ export const reducers: ActionReducerMap<StatePageEditor> = {
  * ActionsEditorModule
  **/
 
-@NgModule({
+/*@NgModule({
   imports: [StoreModule.forFeature('PAGE_EDITOR', reducers)],
 })
 export class ActionsEditorModule {
-}
+}*/
 
 /**
  * EffectsEditorModule
  **/
 
+/*
 @NgModule({
   imports: [
     EffectsModule.forFeature([
@@ -65,3 +61,4 @@ export class ActionsEditorModule {
 })
 export class EffectsEditorModule {
 }
+*/

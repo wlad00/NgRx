@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {CounterActions, CounterSelectors, LoadingActions, LoadingSelectors} from "@editor-actions";
+import {CounterActions,  LoadingActions} from "@editor-actions";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
+import {CounterSelectors, LoadingSelectors} from "@editor-src";
 
 @Component({
   selector: 'editor-counter',

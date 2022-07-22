@@ -2,6 +2,7 @@ import {createFeatureSelector, createSelector} from "@ngrx/store";
 // import { StatePageEditor} from "@page-editor";
 import * as Workers from './library.workers';
 import {StatePageEditor} from "@editor-actions";
+import {editPageSelector} from "@editor-page";
 
 
 
@@ -9,7 +10,7 @@ const PageSelector
   = createFeatureSelector<StatePageEditor>('PAGE-EDITOR');
 
 const LibrarySelector = createSelector(
-  PageSelector,
+  editPageSelector,
   (state: StatePageEditor) => state.libraryState
 );
 
