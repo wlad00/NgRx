@@ -5,14 +5,14 @@ import * as Workers from './library.workers';
 
 
 
-const EditorPageSelector
+const PageSelector
   = createFeatureSelector<StatePageEditor>('PAGE-EDITOR');
 /**
  * 1.  State Selector
  **/
 
-export const libraryStateSelector = createSelector(
-  EditorPageSelector,
+export const StateSelector = createSelector(
+  PageSelector,
   (state: StatePageEditor) => state.libraryState
 );
 
@@ -26,21 +26,21 @@ export const libraryStateSelector = createSelector(
 /* selectAllBooks */
 
 export const selectAllBooks = createSelector(
-  libraryStateSelector,
+  StateSelector,
   Workers.selectAll
 );
 
 /* selectActiveBook */
 
 export const selectActiveBook = createSelector(
-  libraryStateSelector,
+  StateSelector,
   Workers.selectActiveBook
 );
 
 /* selectBooksEarningsTotals */
 
 export const selectBooksEarningsTotals = createSelector(
-  libraryStateSelector,
+  StateSelector,
   Workers.selectEarningsTotals
 );
 

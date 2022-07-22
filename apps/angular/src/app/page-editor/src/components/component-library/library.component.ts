@@ -10,7 +10,7 @@ import {
   selectAllBooks,
   selectActiveBook,
   selectBooksEarningsTotals
-} from "../../actions-state/librarary/library.selectors";
+} from "../../actions/librarary/library.selectors";
 import {LibraryActions} from "@actions-editor";
 
 // import { LibraryActions } from '@editor-actions';

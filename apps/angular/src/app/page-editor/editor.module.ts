@@ -21,10 +21,11 @@ import {LibraryComponent} from "./src/components/component-library/library.compo
 import {BookTotalComponent} from "./src/components/component-library/books-total/book-total.component";
 import {BookListComponent} from "./src/components/component-library/books-list/books-list.component";
 import {BooksDetailComponent} from "./src/components/component-library/book-detail/books-detail.component";
-import {LibraryEffects} from "./src/actions-state/librarary/library.effects";
-import {CounterEffects} from "./src/actions-state/counter/counter.effects";
-import {LoadingEffects} from "./src/actions-state/loading/loading.effects";
+import {LibraryEffects} from "./src/actions/librarary/library.effects";
+import {CounterEffects} from "./src/actions/counter/counter.effects";
+import {LoadingEffects} from "./src/actions/loading/loading.effects";
 import {StoreModule} from "@ngrx/store";
+import {ActionsEditorModule, EffectsEditorModule} from "@actions-editor";
 // import {LibraryEffects} from "./actions-state/librarary/library.effects";
 // import {CounterEffects} from "./actions-state/counter/counter.effects";
 
@@ -47,8 +48,9 @@ const routes: Routes = [
     MatListModule,
     ReactiveFormsModule,
     MatTabsModule,
+    EffectsEditorModule,
+    // ActionsEditorModule
     StoreModule.forFeature('PAGE-EDITOR', reducers),
-    EffectsModule.forFeature([LibraryEffects, CounterEffects,LoadingEffects]),
 
   ]
 })

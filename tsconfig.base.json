@@ -27,7 +27,7 @@
         "apps/angular/src/app/models/models-editor.ts"
       ],
       "@actions-editor": [
-        "apps/angular/src/app/page-editor/src/actions-state/index.ts"
+        "apps/angular/src/app/page-editor/src/actions/index.ts"
       ],
 
       /*"@book-co/books-page": [
