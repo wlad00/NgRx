@@ -2,14 +2,21 @@ import {createAction, props} from "@ngrx/store";
 
 
 
-export const getData = createAction('[LOADING API] getData');
+/* --------------- TO REDUCERS --------------------*/
 
 
+/* ---------- TO REDUCERS + TO EFFECTS ------------*/
+
+export const getData = createAction('[LOADING] getData + ->');
+
+/* ---------------- TO EFFECTS --------------------*/
 
 
-/* Actions in Effects */
+/*-------------------------------------------------*/
+/*---------------- FROM EFFECTS  ------------------*/
+/*-------------------------------------------------*/
 
 export const getDateSuccess = createAction(
-  '[LOADING API] getDataSuccess',
+  '[LOADING] -> getDataSuccess',
   props<{ data: any }>()
 );

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {map, mergeMap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {CounterActions} from "@editor-index";
 import {CounterService} from "./Workers/ConterService";
 
@@ -9,7 +9,9 @@ import {CounterService} from "./Workers/ConterService";
 @Injectable()
 export class CounterEffects {
 
-  updatedAt$ = createEffect(() =>
+  /* increase, decrease, clear -> */
+
+  changeUpdatedAt = createEffect(() =>
     this.actions$.pipe(
       ofType(
         CounterActions.increase,

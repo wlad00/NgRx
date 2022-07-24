@@ -1,16 +1,25 @@
 import {createAction, props} from '@ngrx/store';
 
-// export const COUNTER_KEY = 'counter';
-
-export const increase = createAction('[COUNTER] increase');
-export const decrease = createAction('[COUNTER] decrease');
-export const clear = createAction('[COUNTER] clear');
+/* --------------- TO REDUCERS --------------------*/
 
 
+/* ---------- TO REDUCERS + TO EFFECTS ------------*/
+
+export const increase = createAction('[COUNTER] increase + ->');
+export const decrease = createAction('[COUNTER] decrease + ->');
+export const clear = createAction('[COUNTER] clear + ->');
+
+/* ---------------- TO EFFECTS --------------------*/
+
+
+/*-------------------------------------------------*/
+/*---------------- FROM EFFECTS  ------------------*/
+/*-------------------------------------------------*/
 
 
 export const changeUpdatedAt = createAction(
-  '[COUNTER SECOND] changeUpdatedAt',
+  '[COUNTER] -> changeUpdatedAt',
   props<{ updatedAt: number }>()
 );
+
 

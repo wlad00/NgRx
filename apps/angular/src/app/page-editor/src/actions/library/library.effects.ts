@@ -9,8 +9,9 @@ import {LibraryService} from "./Workers/LibraryService";
 @Injectable()
 export class LibraryEffects {
 
+  /* enter -> */
 
-  loadBooks$ = createEffect(() =>
+  booksLoaded = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LibraryActions.enter),
@@ -25,9 +26,9 @@ export class LibraryEffects {
     )
   );
 
-  /*------------------------------------------------------*/
+  /* createBook -> */
 
-  createBook$ = createEffect(() =>
+  bookCreated = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LibraryActions.createBook),
@@ -38,7 +39,10 @@ export class LibraryEffects {
       )
     )
   );
-  updateBook$ = createEffect(() =>
+
+  /* updateBook -> */
+
+  bookUpdated = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LibraryActions.updateBook),
@@ -49,7 +53,10 @@ export class LibraryEffects {
       )
     )
   );
-  deleteBook$ = createEffect(() =>
+
+  /* deleteBook -> */
+
+  bookDeleted = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LibraryActions.deleteBook),

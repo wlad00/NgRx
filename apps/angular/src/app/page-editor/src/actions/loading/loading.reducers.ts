@@ -12,9 +12,12 @@ export const initialState: LoadingState = {
   dataLoading: false
 };
 
+/*---------------- REDUCERS ------------------------*/
 
 export const loadingReducer = createReducer(
   initialState,
+
+  /* getData */
 
   on(LoadingActions.getData, (state) => ({
 
@@ -22,8 +25,12 @@ export const loadingReducer = createReducer(
     dataLoading: true
   })),
 
-  /* --------- from effect -----------*/
 
+  /*-------------------------------------------------*/
+  /*---------------- FROM EFFECTS  ------------------*/
+  /*-------------------------------------------------*/
+
+  /* getDateSuccess */
 
   on(LoadingActions.getDateSuccess, (state, {data}) => ({
 
@@ -32,4 +39,3 @@ export const loadingReducer = createReducer(
     data: data
   })),
 );
-

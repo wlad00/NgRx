@@ -5,7 +5,7 @@ import * as Workers from './library.workers';
 /**
  * 2. Counter State Selector
  **/
-export const libraryStateSelector = createSelector(
+export const LibrarySelector = createSelector(
   editorPageSelector,
   (state: StatePageEditor) => state.libraryState
 );
@@ -15,16 +15,24 @@ export const libraryStateSelector = createSelector(
  * 3. Counter All Selectors
  **/
 
+/* selectAllBooks */
+
 export const selectAllBooks = createSelector(
-  libraryStateSelector,
+  LibrarySelector,
   Workers.selectAll
 );
+
+/* selectActiveBook */
+
 export const selectActiveBook = createSelector(
-  libraryStateSelector,
+  LibrarySelector,
   Workers.selectActiveBook
 );
+
+/* selectBooksEarningsTotals */
+
 export const selectBooksEarningsTotals = createSelector(
-  libraryStateSelector,
+  LibrarySelector,
   Workers.selectEarningsTotals
 );
 

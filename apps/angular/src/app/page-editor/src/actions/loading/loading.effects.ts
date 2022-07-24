@@ -4,12 +4,14 @@ import {map, mergeMap} from 'rxjs/operators';
 import {LoadingActions} from "@editor-index";
 import {LoadingService} from "./Workers/LoadingService";
 
-// import {EMPTY} from 'rxjs';
 
 @Injectable()
 export class LoadingEffects {
 
-  loadData$ = createEffect(() =>
+
+  /* getData ->  */
+
+  getDateSuccess = createEffect(() =>
     this.actions$.pipe(
       ofType(
         LoadingActions.getData),

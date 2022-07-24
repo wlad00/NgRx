@@ -16,10 +16,13 @@ export const initialState: BookState = {
   activeBookId: null,
 };
 
+/*-------------- REDUCERS --------------------------*/
+
+
 export const bookReducer = createReducer(
   initialState,
 
-  /*----------------------------------------------------*/
+  /* enter, clearSelectedBook + */
 
   on(LibraryActions.clearSelectedBook,
     LibraryActions.enter,
@@ -31,6 +34,8 @@ export const bookReducer = createReducer(
       };
     }),
 
+  /* selectBook + */
+
   on(LibraryActions.selectBook, (state, action) => {
 
     return {
@@ -40,8 +45,11 @@ export const bookReducer = createReducer(
   }),
 
 
-  /*--- after effect ----------*/
+  /*-------------------------------------------------*/
+  /*---------------- FROM EFFECTS  ------------------*/
+  /*-------------------------------------------------*/
 
+  /* -> booksLoaded */
 
   on(LibraryActions.booksLoaded, (state, action) => {
 
@@ -51,6 +59,8 @@ export const bookReducer = createReducer(
     };
   }),
 
+  /* -> bookCreated */
+
   on(LibraryActions.bookCreated, (state, action) => {
 
     return {
@@ -59,6 +69,8 @@ export const bookReducer = createReducer(
     };
   }),
 
+  /* -> bookUpdated */
+
   on(LibraryActions.bookUpdated, (state, action) => {
 
     return {
@@ -66,6 +78,8 @@ export const bookReducer = createReducer(
       activeBookId: null,
     };
   }),
+
+  /* -> bookDeleted */
 
   on(LibraryActions.bookDeleted, (state, action) => {
 

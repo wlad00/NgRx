@@ -3,9 +3,9 @@ import {editorPageSelector, StatePageEditor} from "@editor-state";
 
 
 /**
- * 2. Counter State Selector
+ * 2.  State Selector
  **/
-export const counterStateSelector = createSelector(
+export const LoadingSelector = createSelector(
   editorPageSelector,
   (state: StatePageEditor) => state.loadingState
 );
@@ -13,16 +13,20 @@ export const counterStateSelector = createSelector(
 
 
 /**
- * 3. Counter All Selectors
+ * 3. All Selectors
  **/
 
 
+/* getAllDataSelector  */
+
 export const getAllDataSelector = createSelector(
-  counterStateSelector,
+  LoadingSelector,
   state => state.data
 );
 
+/* dataLoading */
+
 export const dataLoading = createSelector(
-  counterStateSelector,
+  LoadingSelector,
   state => state.dataLoading
 );
