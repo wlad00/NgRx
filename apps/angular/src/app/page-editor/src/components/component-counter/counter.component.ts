@@ -4,10 +4,10 @@ import {CounterActions, LoadingActions} from "@page-editor";
 import {
   countSelector,
   updatedAtSelector
-} from "../../actions-state/counter/counter.selectors";
+} from "../../actions/counter/counter.selectors";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
-import {dataLoading, getAllDataSelector} from "../../actions-api/loading/loading.selectors";
+import {dataLoading, getAllDataSelector} from "../../actions/loading/loading.selectors";
 // import {countSelector} from "../../actions-state/counter/counter.selectors";
 
 // import {clear, decrease, increase} from "../state/count/count.actions";

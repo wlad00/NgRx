@@ -11,8 +11,6 @@ export const libraryStateSelector = createSelector(
 );
 
 
-
-
 /**
  * 3. Counter All Selectors
  **/
