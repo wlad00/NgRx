@@ -21,10 +21,10 @@
     "paths": {
 
       "@editor-index": [
-        "apps/angular/src/app/page-editor/src/actions/index.ts"
+        "apps/angular/src/app/page-editor/src/state/index.ts"
       ],
       "@editor-state": [
-        "apps/angular/src/app/page-editor/src/actions/state.ts"
+        "apps/angular/src/app/page-editor/src/state/state.ts"
       ],
       "@editor-models": [
         "apps/angular/src/app/models/editor.models.ts"

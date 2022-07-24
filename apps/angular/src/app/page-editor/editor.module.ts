@@ -16,9 +16,9 @@ import {LibraryComponent} from "./src/components/component-library/library.compo
 import {BookTotalComponent} from "./src/components/component-library/books-total/book-total.component";
 import {BookListComponent} from "./src/components/component-library/books-list/books-list.component";
 import {BooksDetailComponent} from "./src/components/component-library/book-detail/books-detail.component";
-import {LibraryEffects} from "./src/actions/library/library.effects";
-import {CounterEffects} from "./src/actions/counter/counter.effects";
-import {LoadingEffects} from "./src/actions/loading/loading.effects";
+import {LibraryEffects} from "./src/state/library/library.effects";
+import {CounterEffects} from "./src/state/counter/counter.effects";
+import {LoadingEffects} from "./src/state/loading/loading.effects";
 
 
 const routes: Routes = [

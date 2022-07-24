@@ -15,7 +15,7 @@ export class EditorComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // getting param from url
+    //  getting param from url
 
     this.sub = this.route.params.subscribe(params => {
 
