@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {CounterActions, LoadingActions} from "@page-editor";
+import {CounterActions, LoadingActions} from "@editor-actions";
 import {
   countSelector,
   updatedAtSelector
@@ -8,6 +8,7 @@ import {
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {dataLoading, getAllDataSelector} from "../../actions/loading/loading.selectors";
+import {CounterSelectors} from "../../actions";
 // import {countSelector} from "../../actions-state/counter/counter.selectors";
 
 // import {clear, decrease, increase} from "../state/count/count.actions";
@@ -22,7 +23,7 @@ export class CounterComponent implements OnInit {
 
   // updatedAt?: number;
 
-  count$ = this.store.select(countSelector);
+  count$ = this.store.select(CounterSelectors.countSelector);
   cannotDecrease$ = this.count$.pipe(map(count => count <= 0));
   updatedAt$ = this.store.select(updatedAtSelector);
 

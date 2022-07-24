@@ -1,16 +1,16 @@
 import {createReducer, on} from "@ngrx/store";
-import {CounterActions} from "@page-editor";
+import {CounterActions} from "@editor-actions";
+// import {CounterActions} from "@page-editor";
 
 export interface CounterState {
   count: number;
   updatedAt?: number;
-  data?: any;
-  dataLoading: boolean;
+
 }
 
 export const initialState: CounterState = {
   count: 0,
-  dataLoading: false
+
 };
 
 

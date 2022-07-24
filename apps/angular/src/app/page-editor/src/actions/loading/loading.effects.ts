@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {map, mergeMap} from 'rxjs/operators';
-import {LoadingActions} from "@page-editor";
+import {LoadingActions} from "@editor-actions";
 import {LoadingService} from "./Workers/LoadingService";
 
 // import {EMPTY} from 'rxjs';

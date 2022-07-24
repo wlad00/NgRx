@@ -1,5 +1,5 @@
 import {createReducer, on} from "@ngrx/store";
-import {LoadingActions} from "@page-editor";
+import {LoadingActions} from "@editor-actions";
 
 export interface LoadingState {
 

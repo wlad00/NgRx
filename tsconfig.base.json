@@ -23,6 +23,9 @@
       "@page-editor": [
         "apps/angular/src/app/page-editor/index.ts"
       ],
+      "@editor-actions": [
+        "apps/angular/src/app/page-editor/src/actions/index.ts"
+      ],
       "@models-editor": [
         "apps/angular/src/app/models/models-editor.ts"
       ],
