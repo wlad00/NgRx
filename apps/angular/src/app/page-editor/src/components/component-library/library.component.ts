@@ -2,15 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 
-import {LibraryActions} from "@editor-actions";
-import {BookModel, BookRequiredProps} from "@models-editor";
+import {LibraryActions, LibrarySelectors} from "@editor-index";
+import {BookModel, BookRequiredProps} from "@editor-models";
 
-
-import {
-  selectAllBooks,
-  selectActiveBook,
-  selectBooksEarningsTotals
-} from "../../actions/library/library.selectors";
 
 @Component({
   selector: 'editor-library',
@@ -25,9 +19,9 @@ export class LibraryComponent implements OnInit {
 
   constructor(
     private store: Store) {
-    this.books$ = store.select(selectAllBooks);
-    this.currentBook$ = store.select(selectActiveBook);
-    this.total$ = store.select(selectBooksEarningsTotals);
+    this.books$ = store.select(LibrarySelectors.selectAllBooks);
+    this.currentBook$ = store.select(LibrarySelectors.selectActiveBook);
+    this.total$ = store.select(LibrarySelectors.selectBooksEarningsTotals);
   }
 
   ngOnInit(): void {

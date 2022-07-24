@@ -1,7 +1,7 @@
 import {createReducer, on} from "@ngrx/store";
 
-import {LibraryActions} from "@editor-actions";
-import {BookModel} from "@models-editor";
+import {LibraryActions} from "@editor-index";
+import {BookModel} from "@editor-models";
 
 import * as Workers from './library.workers';
 

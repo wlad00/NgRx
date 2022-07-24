@@ -1,4 +1,4 @@
-import {BookModel} from "@models-editor";
+import {BookModel} from "@editor-models";
 
 
 export function getActiveBook(
@@ -6,11 +6,14 @@ export function getActiveBook(
   activeBookId: string | null
 ) {
   return books.find((book) =>
+
     book.id === activeBookId) || null;
 }
 
 export function calculateBooksGrossEarnings(books: BookModel[]) {
+
   return books.reduce((total, book) => {
+
     return total + parseInt(`${book.earnings}`, 10) || 0;
   }, 0);
 }

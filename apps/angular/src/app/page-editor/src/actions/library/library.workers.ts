@@ -4,7 +4,7 @@ import {createSelector} from "@ngrx/store";
 import {BookModel} from "@book-co/shared-models";
 import * as LibraryWorker from './Workers/LibraryWorker';
 
-/* Selectors */
+/* SELECTORS */
 
 const selectActiveBookId = (state: BookState) => state.activeBookId;
 
@@ -15,17 +15,20 @@ export const selectActiveBook = createSelector(
   selectActiveBookId,
   LibraryWorker.getActiveBook
 );
+
 export const selectEarningsTotals = createSelector(
   selectAll,
   LibraryWorker.calculateBooksGrossEarnings
 );
 
-/*  Reducers */
+/*  REDUCERS */
 
 export const updateBook = (books: BookModel[], changes: BookModel) =>
 
   books.map((book) => {
+
     return book.id === changes.id ?
+
       Object.assign({}, book, changes) : book;
   });
 

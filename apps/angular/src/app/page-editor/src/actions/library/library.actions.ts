@@ -1,6 +1,6 @@
 import {createAction, props} from '@ngrx/store';
 
-import {BookModel, BookRequiredProps} from "@models-editor";
+import {BookModel, BookRequiredProps} from "@editor-models";
 
 export const enter = createAction('[LIBRARY] Enter');
 
@@ -27,7 +27,7 @@ export const deleteBook = createAction(
   '[LIBRARY] Delete Book',
   props<{ bookId: string }>()
 );
-/*---------------------------------------*/
+/*---------- -------------- ---------------*/
 
 export const booksLoaded = createAction(
   '[LIBRARY API] Books Loaded Success',

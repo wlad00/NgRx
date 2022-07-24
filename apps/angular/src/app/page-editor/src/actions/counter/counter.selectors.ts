@@ -1,6 +1,5 @@
 import {createSelector} from "@ngrx/store";
-import {editorPageSelector, StatePageEditor} from "@page-editor";
-// import {State} from "@book-co/shared-state-books";
+import {editorPageSelector, StatePageEditor} from "@editor-state";
 
 /**
  * 2. Counter State Selector
@@ -27,12 +26,3 @@ export const updatedAtSelector = createSelector(
   state => state.updatedAt
 );
 
-/*export const getAllDataSelector = createSelector(
-  counterStateSelector,
-  state => state.data
-);
-
-export const dataLoading = createSelector(
-  counterStateSelector,
-  state => state.dataLoading
-);*/

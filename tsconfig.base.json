@@ -20,19 +20,17 @@
     "strict": true,
     "paths": {
 
-      "@page-editor": [
-        "apps/angular/src/app/page-editor/index.ts"
-      ],
-      "@editor-actions": [
+      "@editor-index": [
         "apps/angular/src/app/page-editor/src/actions/index.ts"
       ],
-      "@models-editor": [
-        "apps/angular/src/app/models/models-editor.ts"
+      "@editor-state": [
+        "apps/angular/src/app/page-editor/src/actions/state.ts"
+      ],
+      "@editor-models": [
+        "apps/angular/src/app/models/editor.models.ts"
       ],
 
-      /*"@book-co/books-page": [
-        "libs/books-page/src/index.ts"
-      ],*/
+
       "@book-co/books-page": [
         "libs/books-page/src/lib/books-page.module.ts"
       ],

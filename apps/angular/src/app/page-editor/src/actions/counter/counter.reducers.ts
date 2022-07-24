@@ -1,6 +1,5 @@
 import {createReducer, on} from "@ngrx/store";
-import {CounterActions} from "@editor-actions";
-// import {CounterActions} from "@page-editor";
+import {CounterActions} from "@editor-index";
 
 export interface CounterState {
   count: number;
@@ -33,23 +32,10 @@ export const counterReducer = createReducer(
   })),
 
 
- /* on(CounterActions.getData, (state) => ({
-    ...state,
-
-    dataLoading: true
-  })),*/
-
-  /* --------- from effect -----------*/
-
   on(CounterActions.changeUpdatedAt, (state, action) => ({
     ...state,
     updatedAt: action.updatedAt
   })),
 
-  /*on(CounterActions.getDateSuccess, (state, {data}) => ({
-    ...state,
-    dataLoading: false,
-    data: data
-  })),*/
 );
 

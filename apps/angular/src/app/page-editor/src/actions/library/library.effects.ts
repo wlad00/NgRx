@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {concatMap, exhaustMap, map, mergeMap} from 'rxjs/operators';
 
-import {LibraryActions} from "@editor-actions";
+import {LibraryActions} from "@editor-index";
 
 import {LibraryService} from "./Workers/LibraryService";
 

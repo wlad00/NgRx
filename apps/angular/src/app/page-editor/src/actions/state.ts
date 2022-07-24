@@ -1,21 +1,9 @@
-/*import * as CounterActions from './src/actions/counter/counter.actions';
-import * as LibraryActions from './src/actions/library/library.actions';
-import * as LoadingActions from './src/actions/loading/loading.actions';*/
-
-import {BookModel, BookRequiredProps} from '@book-co/shared-models';
-
 
 import {ActionReducerMap, createFeatureSelector, MetaReducer, StoreModule} from "@ngrx/store";
 import {NgModule} from "@angular/core";
-import {counterReducer, CounterState} from "./src/actions/counter/counter.reducers";
-import {bookReducer, BookState} from "./src/actions/library/library.reducers";
-import {loadingReducer, LoadingState} from "./src/actions/loading/loading.reducers";
-
-
-// export {CounterActions, LibraryActions, LoadingActions};
-
-
-
+import {counterReducer, CounterState} from "./counter/counter.reducers";
+import {bookReducer, BookState} from "./library/library.reducers";
+import {loadingReducer, LoadingState} from "./loading/loading.reducers";
 
 
 export const PAGE_EDITOR_KEY = 'PAGE-EDITOR';

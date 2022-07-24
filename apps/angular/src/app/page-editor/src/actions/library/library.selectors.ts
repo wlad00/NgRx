@@ -1,5 +1,5 @@
 import { createSelector} from "@ngrx/store";
-import {editorPageSelector, StatePageEditor} from "@page-editor";
+import {editorPageSelector, StatePageEditor} from "@editor-state";
 import * as Workers from './library.workers';
 
 /**
